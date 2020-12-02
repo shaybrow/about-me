@@ -1,0 +1,26 @@
+body {
+  width: 80%;
+  margin: auto;  
+}
+
+
+h1 {
+  font-family: Helvetica, sans-serif;
+  margin: auto;
+  text-align: center;
+  font-size: 3em;
+  background-color: rgb(183, 185, 165);
+  border: medium solid black;
+  border-radius: 10px;
+}
+h2 {
+  font-size: 2em;
+  margin: 1em 0 .5em 2em;
+}
+p {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  line-height: 1.1;
+}
+
+/* stretch goal: Push yourself in your CSS work. Experiment, try some layout feature or technique that you have not tried before (maybe a sticky header or sticky footer, icon fonts such as FontAwesome, etc.) or just try to refine your layout/style as much as possible. We will not cover responsive design until Code 301, but if you have background in it, implement a breakpoint for a mobile view.
+
