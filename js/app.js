@@ -47,127 +47,165 @@
 // ----previous lab
 
 
-var quitGame = false;
-while (!quitGame) {
+// var quitGame = false;
+//while (!quitGame) {
 
 var questionsLeft = 7;
 var totalScore = 0;
-var userName = prompt('Hi! Welcome to this About Me guessing game. Before we load the page, would you tell me the name you\'d like to be called?');
-if (userName === '' || userName === null) {
-  alert("OK. Then I'll call you Phil");
-  userName = "Phil";
-}
-alert(`Please accept this as my warm welcome, ${userName}.`);
+var userName;
+var topHatDelivery;
+var topHatCounter;
 
-var questionHat = prompt('Am I wearing a tophat right at this moment? (Answer y/n or yes/no)').toLowerCase();
-if (questionHat === 'no' || questionHat === 'n') {
-  alert('That\'s Correct!');
-  totalScore += 1;
-} else {
-  alert(`Actually, I'm not, but I would like to someday... If you have a tophat that I could borrow, AND you get all the remaining questions right, I'll give you my mailing address and would love if you'd send it to me.`)
-  var topHatDelivery = false;
-  var topHatCounter = 0;
+function getUserName() {
+  userName = prompt('Hi! Welcome to this About Me guessing game. Before we load the page, would you tell me the name you\'d like to be called?');
+  if (userName === '' || userName === null) {
+    alert("OK. Then I'll call you Phil");
+    userName = "Phil";
+  }
+  alert(`Please accept this as my warm welcome, ${userName}.`);
 }
-questionsLeft--;
+function askHat() {
+  var questionHat = prompt('Am I wearing a tophat right at this moment? (Answer y/n or yes/no)').toLowerCase();
+  if (questionHat === 'no' || questionHat === 'n') {
+    alert('That\'s Correct!');
+    totalScore += 1;
+  } else {
+    alert(`Actually, I'm not, but I would like to someday... If you have a tophat that I could borrow, AND you get all the remaining questions right, I'll give you my mailing address and would love if you'd send it to me.`);
+    var topHatDelivery = false;
+    var topHatCounter = 0;
+  }
+  questionsLeft--;
+}
 // QUESTION 2
-var questionColor = prompt('Is my favorite color gamboge? (Answer y/n or yes/no) or click Cancel to exit.').toLowerCase();
-// thinking of another way to do this, check if it's in an array rather than typing out || for each IF
-// var validYes = ['yes', 'y'];
-// var validNo = ['no', 'n'];
-if (questionColor === '' || questionColor === null) {
-  quitGame = true;
+function askColor() {
+  var questionColor = prompt('Is my favorite color gamboge? (Answer y/n or yes/no) or click Cancel to exit.').toLowerCase();
+  // thinking of another way to do this, check if it's in an array rather than typing out || for each IF
+  // var validYes = ['yes', 'y'];
+  // var validNo = ['no', 'n'];
+  if (questionColor === '' || questionColor === null) {
+    // quitGame = true;
+  }
+  if (questionColor === 'yes' || questionColor === 'y') {
+    alert('That\'s Correct!');
+    totalScore++;
+    topHatCounter++;
+  }
 }
-if (questionColor === 'yes' || questionColor === 'y') {
-  alert('That\'s Correct!');
-  totalScore++;
-  topHatCounter++;
-} 
-
-if (totalScore > 1) {
-  alert(`Awesome, ${userName}. That's two in a row!`);
+function checkTotalScore() {
+  if (totalScore > 1) {
+    alert(`Awesome, ${userName}. That's two in a row!`);
+  }
+  questionsLeft--;
 }
-questionsLeft--;
-
 // QUESTION 3
-var question3 = prompt('Did I grow up in rural Oklahoma?').toLowerCase();
-if (question3 === 'yes' || question3 === 'y') {
-  alert('That\'s Correct!');
-  totalScore++;
-  topHatCounter++;
+function getQuestionThree() {
+  var question3 = prompt('Did I grow up in rural Oklahoma?').toLowerCase();
+  if (question3 === 'yes' || question3 === 'y') {
+    alert('That\'s Correct!');
+    totalScore++;
+    topHatCounter++;
+  }
+  questionsLeft--;
 }
-questionsLeft--;
-var question4 = prompt('Did I go to graduate school in southern New Mexico?').toLowerCase();
-if (question4 === 'yes' || question4 === 'y') {
-  alert('That\'s Correct!');
-  totalScore++;
-  topHatCounter++;
+function getQuestionFour() {
+  var question4 = prompt('Did I go to graduate school in southern New Mexico?').toLowerCase();
+  if (question4 === 'yes' || question4 === 'y') {
+    alert('That\'s Correct!');
+    totalScore++;
+    topHatCounter++;
+  }
+  questionsLeft--;
 }
-questionsLeft--;
-var question5 = prompt('Am I working to become a future Java developer?').toLowerCase();
-if (question5 === 'yes' || question5 === 'y') {
-  alert('That\'s Correct!');
-  totalScore++;
-  topHatCounter++;
+function getQuestionFive() {
+  var question5 = prompt('Am I working to become a future Java developer?').toLowerCase();
+  if (question5 === 'yes' || question5 === 'y') {
+    alert('That\'s Correct!');
+    totalScore++;
+    topHatCounter++;
+  }
+  questionsLeft--;
 }
-questionsLeft--;
-
-if (totalScore >=5) {
-  alert(`Awesome! Thus far, you have discovered my secret pattern of answering "yes" to everything. Let's see if you can keep up your perfect score with these ${questionsLeft} final questions`)
-} else {alert(`Thank you for tolerating my series of popup messages, ${userName}. However, there are still two more to go. Take a deep breath. Thus far, you have earned ${totalScore} points.`);
+function giveAssessment() {
+  if (totalScore >= 5) {
+    alert(`Awesome! Thus far, you have discovered my secret pattern of answering "yes" to everything. Let's see if you can keep up your perfect score with these ${questionsLeft} final questions`)
+  } else {
+    alert(`Thank you for tolerating my series of popup messages, ${userName}. However, there are still two more to go. Take a deep breath. Thus far, you have earned ${totalScore} points.`);
+  }
 }
-
 // --end previous lab
 
 // // QUESTION 6
-var secretNumber = "3"; // i'd be interested to have this be a variable based on a random number function.
-for (var i = 4; i > 0; i--) {
-  var question6 = prompt(`Guess a number from one to ten. You have ${i} tries left.`);
+function getQuestionSix() {
+  var secretNumber = "3"; // i'd be interested to have this be a variable based on a random number function.
+  for (var i = 4; i > 0; i--) {
+    var question6 = prompt(`Guess a number from one to ten. You have ${i} tries left.`);
     if (question6 === secretNumber) {
       alert(`You nailed it!`);
       totalScore++;
       topHatCounter++;
-          break;
-    } else if (question6 === '') {
+      break;
+    }
+    else if (i === 1) {
+      break;
+    }
+    else if (question6 === '') {
       alert(`Please enter a number.`);
       i++;
     } else if (question6 < Number(secretNumber)) {
       alert(`Too low. Try again.`);
     } else if (question6 > Number(secretNumber)) {
       alert(`Too high. Try again.`);
-    } else { 
-      alert(`Number must be entered in numerical form, between 1 and 10`)}
+    } else {
+      alert(`Number must be entered in numerical form, between 1 and 10`)
+    }
+  }
+  alert(`The correct number was ${secretNumber}`);
 }
-alert(`The correct number was ${secretNumber}`);
-
 // QUESTION 7
-questionsLeft--;
-var guessingGameAnswers = ['Las Cruces', 'Stillwater', 'Sebastopol', 'Berkeley', 'Denver'];
-var guessingGameTries = 6;
+function getQuestionSeven() {
+  questionsLeft--;
+  var guessingGameAnswers = ['Las Cruces', 'Stillwater', 'Sebastopol', 'Berkeley', 'Denver'];
+  var guessingGameTries = 6;
 
-alert(`For our next game, I'll ask you to guess a city I have lived in. You have ${guessingGameTries} tries to get one right.`);
-for (var k = 0; k < guessingGameTries; k++) {
-  var guessingGameGuess = prompt(`Enter your guess: `);
-  for (var j = 0; j < guessingGameAnswers.length; j++) {
-    if (guessingGameGuess.toLowerCase() === guessingGameAnswers[j].toLowerCase()) {
-      totalScore++;
-      topHatCounter++;
-          alert(`That's correct!`);
-      break;
+  alert(`For our next game, I'll ask you to guess a city I have lived in. You have ${guessingGameTries} tries to get one right.`);
+  for (var k = 0; k < guessingGameTries; k++) {
+    var guessingGameGuess = prompt(`Enter your guess: `);
+    for (var j = 0; j < guessingGameAnswers.length; j++) {
+      if (guessingGameGuess.toLowerCase() === guessingGameAnswers[j].toLowerCase()) {
+        totalScore++;
+        topHatCounter++;
+        alert(`That's correct!`);
+        k = 100;
+        break;
+
       }
-    } break;
+    }
+    //  break;
+  }
+
+  alert(`Here were the possible correct answers: ${guessingGameAnswers}`) //improve this by iterating through the array in a single alert.
+}
+function finalCongrats() {
+  if (totalScore > 0) {
+    alert(`Awesome, ${userName}! Your final score: ${totalScore} out of 7.`);
+  } else {
+    alert(`You didn't get any answers right, ${userName}, but I still think you're a great person.`);
+  }
 }
 
-alert(`Here were the possible correct answers: ${guessingGameAnswers}`) //improve this by iterating through the array in a single alert.
+getUserName();
+askHat();
+askColor();
+checkTotalScore();
+getQuestionThree();
+getQuestionFour();
+getQuestionFive();
+giveAssessment();
+getQuestionSix();
+getQuestionSeven();
+finalCongrats();
 
-if (totalScore > 0) {
-  alert(`Awesome, ${userName}! Your final score: ${totalScore} out of 7.`); 
-} else {alert(`You didn't get any answers right, ${userName}, but I still think you're a great person.`);
-}
-
-
-
-
-} 
+//} 
 
 // tophat reward if tophat counter is 6
 

@@ -23,3 +23,8 @@ Based on the assignment guidelines, I built a website with a brief bio. The visi
  -I would have liked to have had more time to spend styling CSS. Lots of potential for improvement there!
 
  -Great practice for keeping things simple when they involve many moving parts.
+
+ ### Collaborators
+
+ -Seamus drove this crazy code on 12.3 thanks for the nav Stephen!
+ 
