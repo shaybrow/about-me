@@ -45,6 +45,11 @@
 // Make the number-guessing question use a random number as its correct answer.
 
 // ----previous lab
+
+
+var quitGame = false;
+while (!quitGame) {
+
 var questionsLeft = 7;
 var totalScore = 0;
 var userName = prompt('Hi! Welcome to this About Me guessing game. Before we load the page, would you tell me the name you\'d like to be called?');
@@ -52,45 +57,57 @@ if (userName === '' || userName === null) {
   alert("OK. Then I'll call you Phil");
   userName = "Phil";
 }
-alert('Please accept this as my warm welcome, ' + userName);
+alert(`Please accept this as my warm welcome, ${userName}.`);
 
-var question1 = prompt('Am I wearing a tophat right at this moment? (Answer y/n or yes/no)').toLowerCase();
-if (question1 === 'no' || question1 === 'n') {
+var questionHat = prompt('Am I wearing a tophat right at this moment? (Answer y/n or yes/no)').toLowerCase();
+if (questionHat === 'no' || questionHat === 'n') {
   alert('That\'s Correct!');
   totalScore += 1;
 } else {
-  alert('Actually, no, but I would like to someday.')
+  alert(`Actually, I'm not, but I would like to someday... If you have a tophat that I could borrow, AND you get all the remaining questions right, I'll give you my mailing address and would love if you'd send it to me.`)
+  var topHatDelivery = false;
+  var topHatCounter = 0;
 }
 questionsLeft--;
-var question2 = prompt('Is my favorite color gamboge? (Answer y/n or yes/no)').toLowerCase();
+// QUESTION 2
+var questionColor = prompt('Is my favorite color gamboge? (Answer y/n or yes/no) or click Cancel to exit.').toLowerCase();
 // thinking of another way to do this, check if it's in an array rather than typing out || for each IF
 // var validYes = ['yes', 'y'];
 // var validNo = ['no', 'n'];
-
-if (question2 === 'yes' || question2 === 'y') {
+if (questionColor === '' || questionColor === null) {
+  quitGame = true;
+}
+if (questionColor === 'yes' || questionColor === 'y') {
   alert('That\'s Correct!');
-  totalScore += 1;
+  totalScore++;
+  topHatCounter++;
 } 
 
 if (totalScore > 1) {
   alert(`Awesome, ${userName}. That's two in a row!`);
 }
 questionsLeft--;
+
+// QUESTION 3
 var question3 = prompt('Did I grow up in rural Oklahoma?').toLowerCase();
 if (question3 === 'yes' || question3 === 'y') {
   alert('That\'s Correct!');
+  totalScore++;
+  topHatCounter++;
 }
 questionsLeft--;
 var question4 = prompt('Did I go to graduate school in southern New Mexico?').toLowerCase();
 if (question4 === 'yes' || question4 === 'y') {
   alert('That\'s Correct!');
-  totalScore += 1;
+  totalScore++;
+  topHatCounter++;
 }
 questionsLeft--;
 var question5 = prompt('Am I working to become a future Java developer?').toLowerCase();
 if (question5 === 'yes' || question5 === 'y') {
   alert('That\'s Correct!');
-  totalScore += 1;
+  totalScore++;
+  topHatCounter++;
 }
 questionsLeft--;
 
@@ -107,8 +124,9 @@ for (var i = 4; i > 0; i--) {
   var question6 = prompt(`Guess a number from one to ten. You have ${i} tries left.`);
     if (question6 === secretNumber) {
       alert(`You nailed it!`);
-      totalScore += 1;
-      break;
+      totalScore++;
+      topHatCounter++;
+          break;
     } else if (question6 === '') {
       alert(`Please enter a number.`);
       i++;
@@ -131,8 +149,9 @@ for (var k = 0; k < guessingGameTries; k++) {
   var guessingGameGuess = prompt(`Enter your guess: `);
   for (var j = 0; j < guessingGameAnswers.length; j++) {
     if (guessingGameGuess.toLowerCase() === guessingGameAnswers[j].toLowerCase()) {
-      totalScore += 1;
-      alert(`That's correct!`);
+      totalScore++;
+      topHatCounter++;
+          alert(`That's correct!`);
       break;
       }
     } break;
@@ -146,6 +165,32 @@ if (totalScore > 0) {
 }
 
 
+
+
+} 
+
+// tophat reward if tophat counter is 6
+
       // giving multiple correct tries may only work if there's a function, not a for loop (I think)
       // var continueGuessing = prompt(`You got it right! Would you like to quit... or try for more? You have ${i} guesses left. (Enter y/n)`);
       // if (continueGuessing.toLowerCase() === 'y' || continueGuessing.toLowerCase() !== 'yes') {
+
+
+
+// just tyting this to remember while loops
+// while (!answeredCorrectly && guesses > 0) {
+//   guesses--;
+//   var question = prompt(`what's my favorite`);
+//   for (var k = 0; k < favDog.length; k++) {
+//     if (question === favDog[k]) {
+//       alert("CORRECT!");
+//       answeredCorrectly = true;
+//       break;
+//     }
+//   }
+//   if (!answeredCorrectly) {
+//     alert('WRRRRONG.');
+//   }
+// }
+
+// nest the whole experience in a while loop that endsgame=true if a person clicks cancel
