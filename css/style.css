@@ -22,5 +22,12 @@ p {
   line-height: 1.1;
 }
 
+li {
+  padding-bottom: 5px;
+  
+}
+
+
+
 /* stretch goal: Push yourself in your CSS work. Experiment, try some layout feature or technique that you have not tried before (maybe a sticky header or sticky footer, icon fonts such as FontAwesome, etc.) or just try to refine your layout/style as much as possible. We will not cover responsive design until Code 301, but if you have background in it, implement a breakpoint for a mobile view.
 
